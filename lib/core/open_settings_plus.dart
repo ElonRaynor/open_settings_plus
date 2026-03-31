@@ -5,6 +5,7 @@ import 'package:open_settings_plus/bridge/open_settings_plus_platform_interface.
 
 part 'open_settings_plus_android.dart';
 part 'open_settings_plus_ios.dart';
+part 'open_settings_plus_ohos.dart';
 
 /// {@template open_settings_plus}
 /// Singleton used to create a [OpenSettingsPlus] instance.
@@ -20,12 +21,18 @@ class OpenSettingsPlus {
   /// Returns a singleton instance of [OpenSettingsPlus] for android.
   const factory OpenSettingsPlus.android() = OpenSettingsPlusAndroid;
 
+  /// Returns a singleton instance of [OpenSettingsPlus] for OpenHarmony OS.
+  const factory OpenSettingsPlus.ohos() = OpenSettingsPlusOHOS;
+
   /// {@macro open_settings_plus_core}
   static OpenSettingsPlus? build() {
+    final os = Platform.operatingSystem.toLowerCase();
     if (Platform.isAndroid) {
       return const OpenSettingsPlus.android();
     } else if (Platform.isIOS) {
       return const OpenSettingsPlus.iOS();
+    } else if (os == 'ohos' || os == 'harmonyos') {
+      return const OpenSettingsPlus.ohos();
     } else {
       return null;
     }
