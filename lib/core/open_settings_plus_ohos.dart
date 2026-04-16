@@ -30,8 +30,6 @@ class OpenSettingsPlusOHOS extends OpenSettingsPlus {
   Future<bool> sendCustomMessage(String message) {
     return openSettingsUri(message);
   }
-  /// 无稳定映射
-  Future<bool> call() => openSettingsUri('');
 
   Future<bool> wifi() => openSettingsUri('wifi_entry');
 
@@ -46,8 +44,6 @@ class OpenSettingsPlusOHOS extends OpenSettingsPlus {
   Future<bool> notification() =>
       openSettingsUri('systemui_notification_settings');
 
-  Future<bool> security() => openSettingsUri('privacy_settings');
-
   Future<bool> sound() => openSettingsUri('volume_settings');
 
   Future<bool> display() => openSettingsUri('display_settings');
@@ -57,12 +53,8 @@ class OpenSettingsPlusOHOS extends OpenSettingsPlus {
   Future<bool> deviceInfo() => openSettingsUri('about_device');
 
   Future<bool> internalStorage() => openSettingsUri('storage_settings');
-/// 无稳定映射 （SD卡）存储空间
-  Future<bool> memoryCard() => openSettingsUri('open');
 
   Future<bool> accessibility() => openSettingsUri('accessibility_feature');
-
-  Future<bool> addAccount() => openSettingsUri('hms_account_home_settings');
 
   Future<bool> airplaneMode() => openSettingsUri('mobile_network_entry');
 
@@ -90,48 +82,18 @@ class OpenSettingsPlusOHOS extends OpenSettingsPlus {
 
   Future<bool> batterySaver() => openSettingsUri('battery');
 
-
   Future<bool> cast() => openSettingsUri('wireless_projection_settings');
 
   Future<bool> dataUsage() => openSettingsUri('mobile_data_manage_entr');
 
   Future<bool> tether() => openSettingsUri('hotspot_data_settings');
 
-  Future<bool> appNotificationBubble() => openSettingsUri('');
-
   Future<bool> appNotification() => openSettingsUri(
         'systemui_notification_detail_settings',
         paramMode: OpenSettingsPlusOhosParamMode.pushParamsBundleName,
       );
 
-  Future<bool> openByDefault() => openSettingsUri(
-        'application_info_entry',
-        paramMode: OpenSettingsPlusOhosParamMode.pushParamsSelf,
-      );
-
-  /// Search（无稳定映射）
-  Future<bool> search() => openSettingsUri('');
-
-  ///生物识别和密码
   Future<bool> biometricEnroll() => openSettingsUri('biometrics_and_password_settings');
-
-  /// Hardware keyboard（无稳定映射）
-  Future<bool> hardwareKeyboard() => openSettingsUri('');
-
-  /// Home settings（无稳定映射）
-  Future<bool> home() => openSettingsUri('');
-
-  /// Background data restrictions（无稳定映射）
-  Future<bool> ignoreBackgroundDataRestrictions() => openSettingsUri('');
-
-  /// Battery optimization（无稳定映射）
-  Future<bool> ignoreBatteryOptimization() => openSettingsUri('systemui_battery_settings');
-
-  /// Input method
-  Future<bool> inputMethod() => openSettingsUri('set_input');
-
-  /// Input method subtype（无稳定映射）
-  Future<bool> inputMethodSubtype() => openSettingsUri('');
 
   Future<bool> locale() => openSettingsUri('set_language_region');
 
@@ -139,9 +101,52 @@ class OpenSettingsPlusOHOS extends OpenSettingsPlus {
 
   Future<bool> manageApplication() => openSettingsUri('application_info_entry');
 
-  /// External sources（无稳定映射）
-  Future<bool> manageExternalSources() => openSettingsUri('');
-
-  /// 智慧多窗
   Future<bool> manageOverlay() => openSettingsUri('smart_multi_window');
+  
+  Future<bool> call()  => openSettingsUri('');
+
+  // android.settings.ADD_ACCOUNT_SETTINGS
+  Future<bool> addAccount() async => false;
+
+  // android.settings.APP_OPEN_BY_DEFAULT_SETTINGS
+  Future<bool> openByDefault() async => false;
+
+  // android.settings.SECURITY_SETTINGS
+  Future<bool> security() async => false;
+
+  // android.settings.MEMORY_CARD_SETTINGS
+  Future<bool> memoryCard() async => false;
+
+  // android.settings.CAPTIONING_SETTINGS
+  Future<bool> captioning() async => false;
+
+  // android.settings.APP_NOTIFICATION_BUBBLE_SETTINGS
+  Future<bool> appNotificationBubble() async => false;
+
+  // android.search.action.SEARCH_SETTINGS
+  Future<bool> search() async => false;
+
+  // android.settings.HARD_KEYBOARD_SETTINGS
+  Future<bool> hardwareKeyboard() async => false;
+
+  // android.settings.HOME_SETTINGS
+  Future<bool> home() async => false;
+
+  // android.settings.IGNORE_BACKGROUND_DATA_RESTRICTIONS_SETTINGS
+  Future<bool> ignoreBackgroundDataRestrictions() async => false;
+
+  // android.settings.IGNORE_BATTERY_OPTIMIZATION_SETTINGS
+  Future<bool> ignoreBatteryOptimization() async => false;
+
+  // android.settings.INPUT_METHOD_SETTINGS
+  Future<bool> inputMethod() async => false;
+
+  // android.settings.INPUT_METHOD_SUBTYPE_SETTINGS
+  Future<bool> inputMethodSubtype() async => false;
+
+  // android.settings.MANAGE_DEFAULT_APPS_SETTINGS
+  Future<bool> manageDefaultApps() async => false;
+
+  // android.settings.MANAGE_EXTERNAL_SOURCES_SETTINGS
+  Future<bool> manageExternalSources() async => false;
 }

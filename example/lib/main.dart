@@ -282,28 +282,8 @@ class MyApp extends StatelessWidget {
     return ListView(
       children: [
         ListTile(
-          onTap: settings.call,
-          title: const Text("Open settings (home)"),
-          trailing: const Icon(Icons.chevron_right),
-        ),
-        ListTile(
           onTap: settings.wifi,
           title: const Text("Open wifi"),
-          trailing: const Icon(Icons.chevron_right),
-        ),
-        ListTile(
-          onTap: settings.nfc,
-          title: const Text("Open nfc"),
-          trailing: const Icon(Icons.chevron_right),
-        ),
-        ListTile(
-          onTap: settings.dataRoaming,
-          title: const Text("Open data roaming"),
-          trailing: const Icon(Icons.chevron_right),
-        ),
-        ListTile(
-          onTap: settings.locationSource,
-          title: const Text("Open location source"),
           trailing: const Icon(Icons.chevron_right),
         ),
         ListTile(
@@ -342,46 +322,6 @@ class MyApp extends StatelessWidget {
           trailing: const Icon(Icons.chevron_right),
         ),
         ListTile(
-          onTap: settings.notification,
-          title: const Text("Open notification"),
-          trailing: const Icon(Icons.chevron_right),
-        ),
-        ListTile(
-          onTap: settings.security,
-          title: const Text("Open security"),
-          trailing: const Icon(Icons.chevron_right),
-        ),
-        ListTile(
-          onTap: settings.sound,
-          title: const Text("Open sound"),
-          trailing: const Icon(Icons.chevron_right),
-        ),
-        ListTile(
-          onTap: settings.display,
-          title: const Text("Open display"),
-          trailing: const Icon(Icons.chevron_right),
-        ),
-        ListTile(
-          onTap: settings.date,
-          title: const Text("Open date"),
-          trailing: const Icon(Icons.chevron_right),
-        ),
-        ListTile(
-          onTap: settings.deviceInfo,
-          title: const Text("Open device info"),
-          trailing: const Icon(Icons.chevron_right),
-        ),
-        ListTile(
-          onTap: settings.internalStorage,
-          title: const Text("Open internal storage"),
-          trailing: const Icon(Icons.chevron_right),
-        ),
-        ListTile(
-          onTap: settings.memoryCard,
-          title: const Text("Open memory card"),
-          trailing: const Icon(Icons.chevron_right),
-        ),
-        ListTile(
           onTap: settings.applicationDetails,
           title: const Text("Open application details"),
           trailing: const Icon(Icons.chevron_right),
@@ -394,12 +334,6 @@ class MyApp extends StatelessWidget {
         ListTile(
           onTap: settings.applicationSettings,
           title: const Text("Open application settings"),
-          trailing: const Icon(Icons.chevron_right),
-        ),
-        ListTile(
-          // ignore: deprecated_member_use
-          onTap: settings.applicationNotification,
-          title: const Text("Open application notification (deprecated)"),
           trailing: const Icon(Icons.chevron_right),
         ),
         ListTile(
@@ -418,93 +352,8 @@ class MyApp extends StatelessWidget {
           trailing: const Icon(Icons.chevron_right),
         ),
         ListTile(
-          onTap: settings.cast,
-          title: const Text("Open cast"),
-          trailing: const Icon(Icons.chevron_right),
-        ),
-        ListTile(
-          onTap: settings.dataUsage,
-          title: const Text("Open data usage"),
-          trailing: const Icon(Icons.chevron_right),
-        ),
-        ListTile(
           onTap: settings.tether,
           title: const Text("Open mobile hotspot and tethering"),
-          trailing: const Icon(Icons.chevron_right),
-        ),
-        ListTile(
-          onTap: settings.appNotificationBubble,
-          title: const Text("Open app notification bubble"),
-          trailing: const Icon(Icons.chevron_right),
-        ),
-        ListTile(
-          onTap: settings.search,
-          title: const Text("Open search settings"),
-          trailing: const Icon(Icons.chevron_right),
-        ),
-        ListTile(
-          onTap: settings.biometricEnroll,
-          title: const Text("Open biometric enroll"),
-          trailing: const Icon(Icons.chevron_right),
-        ),
-        ListTile(
-          onTap: settings.hardwareKeyboard,
-          title: const Text("Open hardware keyboard"),
-          trailing: const Icon(Icons.chevron_right),
-        ),
-        ListTile(
-          onTap: settings.home,
-          title: const Text("Open home settings"),
-          trailing: const Icon(Icons.chevron_right),
-        ),
-        ListTile(
-          onTap: settings.ignoreBackgroundDataRestrictions,
-          title: const Text("Open ignore background data restrictions"),
-          trailing: const Icon(Icons.chevron_right),
-        ),
-        ListTile(
-          onTap: settings.ignoreBatteryOptimization,
-          title: const Text("Open ignore battery optimization"),
-          trailing: const Icon(Icons.chevron_right),
-        ),
-        ListTile(
-          onTap: settings.inputMethod,
-          title: const Text("Open input method"),
-          trailing: const Icon(Icons.chevron_right),
-        ),
-        ListTile(
-          onTap: settings.inputMethodSubtype,
-          title: const Text("Open input method subtype"),
-          trailing: const Icon(Icons.chevron_right),
-        ),
-        ListTile(
-          onTap: settings.locale,
-          title: const Text("Open locale"),
-          trailing: const Icon(Icons.chevron_right),
-        ),
-        ListTile(
-          onTap: settings.manageAllApplications,
-          title: const Text("Open manage all applications"),
-          trailing: const Icon(Icons.chevron_right),
-        ),
-        ListTile(
-          onTap: settings.manageApplication,
-          title: const Text("Open manage applications"),
-          trailing: const Icon(Icons.chevron_right),
-        ),
-        ListTile(
-          onTap: settings.manageDefaultApps,
-          title: const Text("Open manage default apps"),
-          trailing: const Icon(Icons.chevron_right),
-        ),
-        ListTile(
-          onTap: settings.manageExternalSources,
-          title: const Text("Open manage external sources"),
-          trailing: const Icon(Icons.chevron_right),
-        ),
-        ListTile(
-          onTap: settings.manageOverlay,
-          title: const Text("Open manage overlay"),
           trailing: const Icon(Icons.chevron_right),
         ),
       ],
