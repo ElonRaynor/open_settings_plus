@@ -50,7 +50,7 @@ void main() {
 
     setUp(() {
       lastCall = null;
-      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+      TestWidgetsFlutterBinding.instance.defaultBinaryMessenger
           .setMockMethodCallHandler(channel, (call) async {
         lastCall = call;
         return true;
@@ -58,7 +58,7 @@ void main() {
     });
 
     tearDown(() {
-      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+      TestWidgetsFlutterBinding.instance.defaultBinaryMessenger
           .setMockMethodCallHandler(channel, null);
     });
 
@@ -128,5 +128,56 @@ void main() {
         });
       },
     );
+  });
+
+  group('ohos uri channel', () {
+    MethodCall? lastCall;
+
+    setUp(() {
+      lastCall = null;
+      TestWidgetsFlutterBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(channel, (call) async {
+        lastCall = call;
+        return true;
+      });
+    });
+
+    tearDown(() {
+      TestWidgetsFlutterBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(channel, null);
+    });
+
+    test('sendCustomMessage reports uri without params for XTS', () async {
+      const settings = OpenSettingsPlusOHOS();
+
+      expect(await settings.sendCustomMessage('wifi_entry'), true);
+      expect(lastCall?.method, 'openSettingsUri');
+      expect(lastCall?.arguments, {
+        'uri': 'wifi_entry',
+        'paramMode': 'none',
+      });
+    });
+
+    test('applicationDetails reports self params mode for XTS', () async {
+      const settings = OpenSettingsPlusOHOS();
+
+      expect(await settings.applicationDetails(), true);
+      expect(lastCall?.method, 'openSettingsUri');
+      expect(lastCall?.arguments, {
+        'uri': 'application_info_entry',
+        'paramMode': 'pushParamsSelf',
+      });
+    });
+
+    test('appNotification reports bundle params mode for XTS', () async {
+      const settings = OpenSettingsPlusOHOS();
+
+      expect(await settings.appNotification(), true);
+      expect(lastCall?.method, 'openSettingsUri');
+      expect(lastCall?.arguments, {
+        'uri': 'systemui_notification_detail_settings',
+        'paramMode': 'pushParamsBundleName',
+      });
+    });
   });
 }

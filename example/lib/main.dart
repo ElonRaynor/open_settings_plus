@@ -24,18 +24,23 @@ class MyApp extends StatelessWidget {
               expandedHeight: 220,
             ),
           ],
-          body: switch (OpenSettingsPlus.shared) {
-            OpenSettingsPlusAndroid settings => _buildAndroidList(settings),
-            OpenSettingsPlusIOS settings => _buildIOSList(settings),
-            OpenSettingsPlusOHOS settings => _buildOhosList(settings),
-            _ => const Center(
-                child: Text(
-                  "Unsupported platform.",
-                ),
-              ),
-          },
+          body: _buildBody(),
         ),
       ),
+    );
+  }
+
+  Widget _buildBody() {
+    final settings = OpenSettingsPlus.shared;
+    if (settings is OpenSettingsPlusAndroid) {
+      return _buildAndroidList(settings);
+    } else if (settings is OpenSettingsPlusIOS) {
+      return _buildIOSList(settings);
+    } else if (settings is OpenSettingsPlusOHOS) {
+      return _buildOhosList(settings);
+    }
+    return const Center(
+      child: Text("Unsupported platform."),
     );
   }
 
